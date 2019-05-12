@@ -1,16 +1,19 @@
+#IDEAS
+Seperate scopes of tasks and goals
+
 #Design Document
-  LEARN TREES
+LEARN TREES
+
 #Interfaces
 
 #Class Objects
 TodoElement
   category
   project
-  skill
+  tasks
 TodoList
   list of TodoElements
   clear TodoElements
 
 Main
-  Add TodoElements
-  List Elements
+  Add Tasks of all types of scopes
