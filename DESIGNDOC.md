@@ -1,5 +1,6 @@
 #IDEAS
 Seperate scopes of tasks and goals
+Parser of regular text files of a particular format
 
 #Design Document
 LEARN TREES
@@ -8,12 +9,7 @@ LEARN TREES
 
 #Class Objects
 TodoElement
-  category
-  project
-  tasks
 TodoList
-  list of TodoElements
-  clear TodoElements
-
+txt file parser
 Main
-  Add Tasks of all types of scopes
+
