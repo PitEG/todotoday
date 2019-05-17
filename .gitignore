@@ -13,6 +13,9 @@
 # Vim swap files
 *.swp
 
+# Build Dir
+build/
+
 # Package Files #
 *.jar
 *.war

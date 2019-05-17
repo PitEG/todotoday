@@ -1,20 +1,20 @@
 public class TodoElement {
-  private string category;
-  private string project;
-  private string task;
+  private String category;
+  private String project;
+  private String task;
 
   private static final String EMPTY_STRING = "";
 
   public TodoElement() {
   }
 
-  public TodoElement(string c) {
+  public TodoElement(String c) {
     this.category = c;
     this.project = EMPTY_STRING;
     this.task = EMPTY_STRING;
   }
 
-  public TodoElement(string c, string p, string t) {
+  public TodoElement(String c, String p, String t) {
     this.category = c;
     this.project = p;
     this.task = t;
