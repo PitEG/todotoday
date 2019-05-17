@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ToDoToday" default="jar" basedir=".">
+  <property name="build.dir" location="build" />
+  <property name="src.dir" location="src"/>
+  <property name="project.name" value="ToDoToday"/>
+  
+  <target name="clean">
+    <delete dir="${build.dir}" />
+  </target>
+
+</project>
