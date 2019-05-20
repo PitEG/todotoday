@@ -3,6 +3,6 @@ public class Main {
 
   public static void main(String[] args) {
     if (debug) System.out.println("DEBUG MODE");
-     
+    
   }
 }
