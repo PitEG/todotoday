@@ -1,45 +1,26 @@
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class TodoList {
-  private HashMap<String,TodoElement> map; 
-  private String file;
 
-  public TodoList(String file) {
-    this.file = file;
+  private HashMap<String, TodoElement> contents;
+
+  public TodoList() {
+    contents = new HashMap<String, TodoElement>();
   }
 
-  public boolean makeCategory(String name) {
-    if (!map.containsKey(name)) {
-      return false;
+  public TodoList(TodoElement[] elements) {
+    for (int i = 0; i < elements.length; i++) {
+      add(elements[i]);
     }
-    TodoElement category = new TodoElement(name);
-    map.put(name, category);
-
-    return true;
   }
 
-  public boolean makeProject(String category, String name) {
-    if (!map.containsKey(category) && 
-        !map.get(category).getContents().containsKey(name)) {
-      return false; 
-    }
-    TodoElement project = new TodoElement(category, name);
-    map.get(category).getContents().put(name, project);
-
-    return true;
+  public void add(TodoElement e) {
+    String name = e.getName();
+    contents.put(name, e);
   }
 
-  public boolean makeTask(String category, String project, String name) {
-    if (!map.containsKey(category) &&
-        !map.get(category).getContents().containsKey(project) &&
-        !map.get(category).getContents().get(project).getContents().containsKey(name)) {
-      return false;
-    }
-    TodoElement task = new TodoElement(category, project, name);
-    map.get(category).getContents().get(project).getContents().put(name, task);
-
-    return true;
+  public TodoElement get(String name) {
+    return contents.get(name); 
   }
 
 }

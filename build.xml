@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="ToDoToday" default="jar" basedir=".">
-  <property name="build.dir" location="build" />
-  <property name="src.dir" location="src" />
+  <property name="build.dir" location="build"/>
+  <property name="src.dir" location="src"/>
   <property name="project.name" value="ToDoToday"/>
   
   <target name="clean">
-    <delete dir="${build.dir}/classes" />
+    <delete dir="${build.dir}/classes"/>
   </target>
   
   <target name="makedir">
-    <mkdir dir="${build.dir}" />
-    <mkdir dir="${build.dir}/jars" />
-    <mkdir dir="${build.dir}/classes" />
+    <mkdir dir="${build.dir}"/>
+    <mkdir dir="${build.dir}/jars"/>
+    <mkdir dir="${build.dir}/classes"/>
   </target>
 
   <target name="compile" depends="clean, makedir">
-    <javac srcdir="${src.dir}" destdir="${build.dir}/classes" compiler="javac10+" />
+    <javac srcdir="${src.dir}" destdir="${build.dir}/classes" compiler="javac10+"/>
   </target>
 
   <target name="jar" depends="compile">
