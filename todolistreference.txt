@@ -1,0 +1,25 @@
+//TODOLIST//
+# Daily
+  Homework
+  Stuff
+  Hi There
+
+# Projects
+  : Category
+    - thing
+    - something else
+  : Category 2
+    - something else
+  : Category 3
+    - something else
+  : Category 4
+    - something else
+
+# Backlogged
+  : Category
+    - thing
+    - something else
+  : Category 2
+    - something else
+  : Category 3
+  : Category 4
