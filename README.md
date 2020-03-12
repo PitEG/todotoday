@@ -5,4 +5,4 @@ A simple command line script that lets you plan your day
 
 # Dependencies
 For now, only works on linux. 
-make and the mono compiler is required.
+mono is required to compile.
