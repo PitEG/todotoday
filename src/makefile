@@ -1,4 +1,5 @@
 # src makefile
 
-Program.exe: Program.cs
-	csc -out:../build/Program.exe Program.cs
+Program.exe: 
+	csc -out:../build/Program.exe *.cs 
+ 
