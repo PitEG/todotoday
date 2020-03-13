@@ -1,4 +1,4 @@
-//TODOLIST//
+///TODOLIST//
 # Daily
   Homework
   Stuff
@@ -15,6 +15,7 @@
   : Category 4
     - something else
 
+////CAN BE SHOWN THROUGH A COMMAND
 # Backlogged
   : Category
     - thing
@@ -23,3 +24,19 @@
     - something else
   : Category 3
   : Category 4
+
+# ACCOMPLISHED
+  : Category
+    - something
+  : Category
+    - something
+  : Category
+    - something 
+  : Category
+    - something 
+    - something 
+    - something 
+    - something 
+  : Category
+    - something 
+
