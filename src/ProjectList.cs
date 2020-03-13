@@ -1,9 +1,9 @@
 using System;
 
 namespace TodoToday {
-  public class ProjectList {
+  public class ProjectList : TaskList {
     public ProjectList() {
-      Console.WriteLine("making projects");
+      Console.WriteLine("made projects");
     }
   }
 }

@@ -17,7 +17,27 @@ namespace TodoToday {
 
       //make todolist
       TodoList todolist = new TodoList();
+      
+      //shell loop
+      while(true) {
+        todolist.PrintTodoList();
 
+        string command = Console.ReadLine(); 
+        switch (command) {
+          case "a":
+          case "add":
+            break;
+          case "m":
+          case "move":
+            break;
+        }
+
+        //exit
+        if (command == "q" || command == "quit") {
+          //TODO save back to file
+          break;
+        }
+      }
     }
   }
 }

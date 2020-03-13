@@ -5,6 +5,7 @@ namespace TodoToday {
   public class Task {
     private string category;
     private string name;
+    private int cost;
     bool done;
 
     public string Category {
@@ -15,19 +16,24 @@ namespace TodoToday {
       get { return this.name; }
     }
 
+    public int Cost {
+      get { return this.cost; }
+    }
+
     public bool Done {
       get { return this.done; }
       set { this.done = value; }
     }
 
-    public Task() : this("noname", "default"){
+    public Task() : this("noname", "default", 0){
       Console.WriteLine("made a task");
     }
 
-    public Task(string name, string category) {
+    public Task(string name, string category, int cost) {
       this.name = name;
       this.category = category;
       this.done = false;
+      this.cost = 0;
     }
 
   }

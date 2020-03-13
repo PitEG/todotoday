@@ -21,8 +21,16 @@ namespace TodoToday {
 
     public virtual void PrintList() {
       for (int i = 0; i < tasks.Count; i++) {
-        Console.WriteLine(tasks[i].Name);
+        Console.WriteLine(tasks[i].Cost + " " + tasks[i].Name);
       }
+    }
+
+    public virtual bool Add(Task task) {
+      return false;
+    }
+
+    public virtual bool Remove(Task task) {
+      return false;
     }
   }
 }
