@@ -1,8 +1,8 @@
 ///TODOLIST//
 # Daily
-  Homework
-  Stuff
-  Hi There
+  - 2 Homework
+  - 1 Stuff
+  - 1 Hi There
 
 # Projects
   : Category

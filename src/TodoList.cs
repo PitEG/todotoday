@@ -13,13 +13,43 @@ namespace TodoToday {
       this.backlog = new Backlog();
     }
 
-    public TodoList(string filepath) {
+    public TodoList(string filepath) : this() {
       //Open file and build todolist from it
+      BuildListFromFile(filepath);
     }
 
     private void BuildListFromFile(string filepath) {
-      using (FileStream fs = File.OpenRead(filepath)) {
+      using (StreamReader sr = new StreamReader(filepath)) { 
+        //read dailies
+        sr.ReadLine();
+        while (sr.Peek() != '#') {
+          //read whitespace 
+          while (sr.Peek() == ' ' || 
+              sr.Peek() == '-' ||
+              sr.Peek() == '\t') {
+            sr.Read();    
+          }
 
+          //read cost TODO doesn't work
+          string costStr = "";
+          while (sr.Peek() != ' ') {
+            costStr += sr.Read(); 
+          }
+          int cost = Int32.Parse(costStr);
+          sr.Read();
+
+          //read the name of the task
+          string taskName = sr.ReadLine(); 
+          Task dailyTask = new Task(taskName, "", cost);
+          dailies.Add(dailyTask);
+          
+          Console.WriteLine("made " + taskName);
+        }
+        //read projects
+        sr.ReadLine();
+
+        //read backlog
+        //read accomplishments
       }
     }
 
@@ -29,24 +59,71 @@ namespace TodoToday {
       backlog.PrintList();
     }
 
-    /* TYPE CHECK DOESN"T WORK 
-    public bool Add<T>(Task task) where T : TaskList {
-      if (T typeof DailyList) {
-        dailes.Add(task);
+    public void CreateTask() {
+      Console.WriteLine("Creating a Task");
+      Console.WriteLine("name: ");
+      string name = Console.ReadLine();
+      Console.WriteLine("category: ");
+      string category = Console.ReadLine();
+      Console.WriteLine("cost: ");
+      int cost = Int32.Parse(Console.ReadLine());
+
+      Task task = new Task(name, category, cost);
+
+      bool invalidList = true;
+      while (invalidList) {
+        Console.WriteLine("add to which list? \n" +
+            "dailies, projects, or backlog? ");
+        string list = Console.ReadLine();
+        switch (list) {
+          case "d":
+          case "daily":
+            Add(ListType.Daily, task);
+            invalidList = false;
+            break;
+          case "p":
+          case "projects":
+            Add(ListType.Projects, task);
+            invalidList = false;
+            break;
+          case "b":
+          case "backlog":
+            Add(ListType.Projects, task);
+            invalidList = false;
+            break;
+          default:
+            break;
+        }
+      }
+
+      Console.WriteLine("added " + task.Name + "!");
+    }
+
+    public bool Add(ListType listType, Task task) { 
+      if (listType == ListType.Daily) {
+        dailies.Add(task);
         return true;
       }
-      if (T typeof ProjectList) {
+      if (listType == ListType.Projects) {
         projects.Add(task);
         return true;
       }
-      if (T typeof Backlog) {
+      if (listType == ListType.Backlog) {
         backlog.Add(task);
         return true;
       }
+      if (listType == ListType.Accomplished) {
+        //not implemented yet
+        //accomplishedList.Add(task);
+        return true;
 
+      }
       //if type T didn't match any of hte list types
       return false;
     }
-    */
+  }
+
+  public enum ListType {
+    Daily, Projects, Backlog, Accomplished
   }
 }

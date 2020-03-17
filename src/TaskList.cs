@@ -26,11 +26,12 @@ namespace TodoToday {
     }
 
     public virtual bool Add(Task task) {
-      return false;
+      tasks.Add(task);
+      return true;
     }
 
     public virtual bool Remove(Task task) {
-      return false;
+      return tasks.Remove(task);
     }
   }
 }

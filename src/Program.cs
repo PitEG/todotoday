@@ -5,9 +5,14 @@ namespace TodoToday {
   public class Program {  
     public static void Main(string[] args) {
       //input must be a file directory
-      if (args.Length != 1) {
+      if (args.Length > 1) {
         Console.WriteLine("Invalid input!");
         return;
+      }
+
+      bool noFile = false;
+      if (args.Length == 0) {
+        noFile = true; 
       }
 
       string fileDirectory = args[0];
@@ -16,19 +21,29 @@ namespace TodoToday {
       }
 
       //make todolist
-      TodoList todolist = new TodoList();
+      TodoList todolist;
+      if (noFile) {
+        todolist = new TodoList();
+      }
+      else {
+        todolist = new TodoList(fileDirectory);
+      }
       
       //shell loop
       while(true) {
         todolist.PrintTodoList();
 
+        Console.WriteLine("** add, move, delete tasks **");
         string command = Console.ReadLine(); 
         switch (command) {
           case "a":
           case "add":
+            todolist.CreateTask();
             break;
           case "m":
           case "move":
+            break;
+          default:
             break;
         }
 
