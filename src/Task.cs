@@ -26,14 +26,13 @@ namespace TodoToday {
     }
 
     public Task() : this("noname", "default", 0){
-      Console.WriteLine("made a task");
     }
 
     public Task(string name, string category, int cost) {
       this.name = name;
       this.category = category;
       this.done = false;
-      this.cost = 0;
+      this.cost = cost;
     }
 
   }

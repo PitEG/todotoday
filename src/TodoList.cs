@@ -19,37 +19,51 @@ namespace TodoToday {
     }
 
     private void BuildListFromFile(string filepath) {
-      using (StreamReader sr = new StreamReader(filepath)) { 
+      using (TextReader tr = File.OpenText(filepath)) {
+        string file = tr.ReadToEnd();
+        string[] lists = file.Split('#');
+
         //read dailies
-        sr.ReadLine();
-        while (sr.Peek() != '#') {
-          //read whitespace 
-          while (sr.Peek() == ' ' || 
-              sr.Peek() == '-' ||
-              sr.Peek() == '\t') {
-            sr.Read();    
-          }
+        string[] dailiesStr = lists[1].Split('\n');
 
-          //read cost TODO doesn't work
-          string costStr = "";
-          while (sr.Peek() != ' ') {
-            costStr += sr.Read(); 
-          }
-          int cost = Int32.Parse(costStr);
-          sr.Read();
+      }
+      using (TextReader tr = File.OpenText(filepath)) {
+        //read dailies
+        tr.ReadLine();
+        string currLine = tr.ReadLine().Trim();
 
-          //read the name of the task
-          string taskName = sr.ReadLine(); 
-          Task dailyTask = new Task(taskName, "", cost);
-          dailies.Add(dailyTask);
-          
-          Console.WriteLine("made " + taskName);
+        while (currLine[0] != '#') {
+          int costIdx = 1;
+          int taskStartIdx = 2;
+
+          //create currLine's Task
+          string[] taskParse = currLine.Split('\t',' ');
+          int cost = Int32.Parse(taskParse[costIdx]);
+          string taskName = taskParse[taskStartIdx];
+          for (int i = taskStartIdx + 1; i < taskParse.Length; i++) {
+            if (taskParse[i] != "")
+              taskName +=  " " + taskParse[i]; 
+          }
+          Task newTask = new Task(taskName, "", cost);
+          dailies.Add(newTask);
+
+          currLine = tr.ReadLine().Trim();
         }
+
         //read projects
-        sr.ReadLine();
+        tr.ReadLine();
+        currLine = tr.ReadLine().Trim();
+        while (currLine[0] != '#') {
+          while (currLine[0] != ':') {
+
+          }
+
+        }
 
         //read backlog
+
         //read accomplishments
+
       }
     }
 

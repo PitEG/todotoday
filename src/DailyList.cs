@@ -7,7 +7,6 @@ namespace TodoToday {
   public class DailyList : TaskList {
 
     public DailyList() {
-      Console.WriteLine("made dailylist");
     }
 
     public override void PrintList() {

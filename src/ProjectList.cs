@@ -4,7 +4,6 @@ using System.Collections.Generic;
 namespace TodoToday {
   public class ProjectList : TaskList {
     public ProjectList() {
-      Console.WriteLine("made projects");
     }
 
     public override void PrintList() {
