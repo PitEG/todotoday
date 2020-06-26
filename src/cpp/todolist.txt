@@ -1,0 +1,3 @@
+TaskList and Goal might be the same class :P
+One of them is redundant 
+
