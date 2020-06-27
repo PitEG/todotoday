@@ -1,2 +1,2 @@
 Tests:
-	g++ -c *.cpp	
+	@g++ -g *.cpp -I$(DEP) -o $(BUILD)/tests/Tests

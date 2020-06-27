@@ -3,10 +3,11 @@
 
 OBJ = TodoToday.o 
 
-$(OBJ): *.cpp *.hpp
+
+$(OBJ): 
 	@echo building TodoToday
-	@g++ -c TodoToday.cpp #compile
+	@g++ -c TodoToday.cpp -o TodoToday.o#compile
 	@echo finished TodoToday
 
 clean:
-	@rm $(OBJ)
+	@rm TodoToday.o

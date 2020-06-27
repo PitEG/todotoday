@@ -4,14 +4,16 @@
 .PHONY:valgrind
 
 OBJ = src/cpp/TodoToday.o
+export DEP = ${PWD}/src/cpp
+export BUILD = ${PWD}/build
 
-default: $(OBJ)
-	make -C src/cpp
-	make -C src/cli
+default: 
+	@$(MAKE) -C src/cpp/
+	@$(MAKE) -C src/cli
 
 test:
-	make -C src/cpp/
-	make -C tests/
+	@+$(MAKE) -C src/cpp/
+	@+$(MAKE) -C tests/ 
 
 run: default 
 	./build/TodoToday
