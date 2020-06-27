@@ -13,13 +13,15 @@ class Goal {
     //
     // GETTER/SETTERS
     //
-    unsigned int Count();
-    std::vector Tasks();
+    unsigned int NumTasks();
+    std::vector<Task*> Tasks();
+    bool Completed();
 
     //
     // CONSTRUCTORS
     //
     Goal(std::string name);
+    Goal(std::string name, std::vector<Task*> tasks);
 
     //
     // METHODS
@@ -27,5 +29,4 @@ class Goal {
 
   private:
     TaskList tasks;
-
 };
