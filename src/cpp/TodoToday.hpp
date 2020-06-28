@@ -6,7 +6,7 @@ class TodoToday {
     //
     // PUBLIC MEMBER FIELDS
     //
-    
+
 
     //
     // CONSTRUCTORS 
@@ -26,5 +26,4 @@ class TodoToday {
     // PRIVATE MEMBER FIELDS
     //
     std::list<Goal*> goals;
-
 };

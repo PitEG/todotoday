@@ -150,7 +150,9 @@ TEST_CASE("TodoToday", "[todotoday]") {
   SECTION("Testing Goals:") {
     //So far it's just a very shallow encapsulation of TaskList... 
     //which is also just a wrapper. Why do I do this.
+  }
 
+  SECTION("Testing TodoToday:") {
 
   }
 }
