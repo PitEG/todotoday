@@ -6,19 +6,19 @@
 OBJ = src/cpp/TodoToday.o
 export DEP = ${PWD}/src/cpp
 export BUILD = ${PWD}/build
+TDT = src/cpp
 
-default: 
-	@$(MAKE) -C src/cpp/
-	@$(MAKE) -C src/cli
+todotoday: 
+	@g++ -I$(TDT) $(TDT)/*.cpp src/cli/main.cpp -o build/todotoday  
 
 test:
-	@+$(MAKE) -C src/cpp/
-	@+$(MAKE) -C tests/ 
+	@g++ -I$(TDT) $(TDT)/*.cpp tests/tests.cpp -o build/tests
+	@./build/tests
 
 run: default 
-	./build/TodoToday
+	@./build/todotoday
 
 valgrind: test
-	valgrind build/TodoToday
+	@valgrind build/tests
 
 workspace:
