@@ -3,8 +3,8 @@
 //
 // CONSTRUCTORS 
 //
-Task::Task(std::string name) {
-  this->name = name;
+Task::Task(std::string name) :
+  name(name), completed(false), dateCompleted({0,0,0}) {
 }
 Task::Task() : name("no name") {
 }
@@ -17,4 +17,8 @@ void Task::Complete(int day, int month, int year) {
   dateCompleted.day = day;
   dateCompleted.month = month;
   dateCompleted.year = year;
+}
+
+void Task::Complete(Date date) {
+  this->dateCompleted = date;
 }

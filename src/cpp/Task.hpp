@@ -20,12 +20,13 @@ class Task {
     // Methods
     //
     void Complete(int day, int month, int year);
+    void Complete(Date date);
 
     //
     // Getter/Setters
     //
     bool Completed() { return completed; }
-    Date DateCompleted() { return dateCompleted; }
+    const Date DateCompleted() { return dateCompleted; }
     
 
   private:

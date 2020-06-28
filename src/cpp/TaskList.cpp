@@ -1,16 +1,15 @@
 #include "TaskList.hpp"
-
 //
 // GETTER/SETTERS
 //
 
-unsigned int TaskList::Size() {
+unsigned int TaskList::Size() const {
   return tasks.size();
 }
 
-std::vector<Task*> TaskList::Tasks() {
+std::vector<Task*> TaskList::Tasks() const {
   std::vector<Task*> taskVec(tasks.size());
-  std::list<Task*>::iterator it = tasks.begin(); 
+  auto it = tasks.begin(); 
   for (int i = 0; i < tasks.size(); i++, it++) {
     taskVec[i] = *it;
   }
@@ -19,9 +18,28 @@ std::vector<Task*> TaskList::Tasks() {
 }
 
 void TaskList::Add(Task* task, unsigned int idx) {
+  if (idx > Size()) {
+    return;
+  }
+  auto it = tasks.begin();
+  for (int i = 0; i < idx; i++) {
+    it++;  
+  }
+  tasks.insert(it, task);
 }
 
-void TaskList::Remove(int idx) {
+Task* TaskList::Get(unsigned int idx) const {
+  if (idx > Size()) {
+    return NULL;
+  }
+  auto it = tasks.begin();
+  for (int i = 0; i < idx; i++) {
+    it++;
+  }
+  return *it;
+}
+
+void TaskList::Remove(unsigned int idx) {
   if (idx >= Size()) {
     return;
   }
@@ -36,6 +54,7 @@ void TaskList::Remove(std::string name) {
   for (int i = 0; i < Size(); i++) {
     if ((*it)->name == name) {
       it = tasks.erase(it);
+      i--;
     }
     else {
       it++;
@@ -43,7 +62,7 @@ void TaskList::Remove(std::string name) {
   }
 }
 
-bool TaskList::Completed() {
+bool TaskList::Completed() const {
   auto it = tasks.begin();
   while( it != tasks.end()) {
     if (!(*it)->Completed()) {
@@ -64,6 +83,15 @@ TaskList::TaskList(std::vector<Task*> tasks) {
     this->tasks.push_back(tasks[i]); 
   }
 }
+
+/* DESTRUCTOR the deletes all listed tasks
+TaskList::~TaskList() {
+  auto it = tasks.begin();
+  while (it != tasks.end()) {
+    delete *it;
+  }
+}
+*/
 
 //
 // PRIVATE METHODS

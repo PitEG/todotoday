@@ -12,21 +12,24 @@ class TaskList {
     //
     // GETTER/SETTERS
     //
-    unsigned int Size();
-    std::vector<Task*> Tasks();
-    bool Completed();
+    unsigned int Size() const;
+    std::vector<Task*> Tasks() const;
+    bool Completed() const;
 
     //
     // CONSTRUCTORS
     //
     TaskList();
     TaskList(std::vector<Task*> tasks);
+    TaskList(TaskList* tasks);
+    //~TaskList();
 
     //
     // PUBLIC METHODS
     //
     void Add(Task* task, unsigned int idx);
-    void Remove(int idx);
+    Task* Get(unsigned int idx) const;
+    void Remove(unsigned int idx);
     void Remove(std::string name);
 
   private:

@@ -22,11 +22,12 @@ class Goal {
     //
     Goal(std::string name);
     Goal(std::string name, std::vector<Task*> tasks);
+    Goal(std::string name, TaskList* tasks);
 
     //
     // METHODS
     //
 
   private:
-    TaskList tasks;
+    TaskList* tasks;
 };

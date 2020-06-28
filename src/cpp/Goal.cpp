@@ -4,14 +4,14 @@
 // GETTER/SETTERS
 //
 unsigned int Goal::NumTasks() { 
-  return tasks.Size();
+  return tasks->Size();
 }
 std::vector<Task*> Goal::Tasks() {
-  return tasks.Tasks();
+  return tasks->Tasks();
 }
 
 bool Goal::Completed() {
-  return tasks.Completed();
+  return tasks->Completed();
 }
 
 //
@@ -19,6 +19,13 @@ bool Goal::Completed() {
 //
 Goal::Goal(std::string name) : name(name){
 }
+
 Goal::Goal(std::string name, std::vector<Task*> tasks) : 
+  name(name) { 
+
+  this->tasks = new TaskList(tasks);
+}
+
+Goal::Goal(std::string name, TaskList* tasks) : 
   name(name), tasks(tasks) {
 }
